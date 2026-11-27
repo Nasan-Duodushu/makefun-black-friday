@@ -1,0 +1,241 @@
+/* Deal Board — Black Friday 2026. Own design: a midnight-sale board, deep navy
+   with amber sale tags. No retailer branding, no copied images; the glyphs are
+   plain text marks, the rest is CSS. */
+
+:root {
+  --bg: #0d1226;
+  --bg-soft: #141a33;
+  --card: #1a2140;
+  --card-edge: #2a3358;
+  --ink: #eef1ff;
+  --muted: #aab3d6;
+  --amber: #f5b301;
+  --amber-ink: #241a00;
+  --coral: #ff6b6b;
+  --green: #3ddc97;
+  --blue: #6ea8ff;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+a { color: var(--amber); }
+a:visited { color: #e0a800; }
+
+header.site {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  padding: 0.9rem 1.25rem;
+  background: var(--bg-soft);
+  border-bottom: 1px solid var(--card-edge);
+}
+header.site a.brand {
+  color: var(--ink);
+  font-weight: 800;
+  font-size: 1.25rem;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+header.site a.brand b { color: var(--amber); }
+header.site span.tag { color: var(--muted); font-size: 0.85rem; }
+
+main { max-width: 1080px; margin: 0 auto; padding: 0 1.25rem 3rem; }
+
+.hero { padding: 2rem 0 0.5rem; }
+.kicker {
+  margin: 0 0 0.3rem;
+  color: var(--amber);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+.hero h1 { margin: 0 0 0.6rem; font-size: 2.1rem; line-height: 1.15; }
+.lede { max-width: 62ch; color: var(--muted); margin: 0 0 1.4rem; }
+.lede strong { color: var(--ink); }
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  margin: 0 0 1.5rem;
+}
+.stats div {
+  background: var(--card);
+  border: 1px solid var(--card-edge);
+  border-radius: var(--radius);
+  padding: 0.8rem 1rem;
+}
+.stats dt { color: var(--muted); font-size: 0.8rem; margin: 0; }
+.stats dd { margin: 0.15rem 0 0; font-size: 1.45rem; font-weight: 800; }
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1rem;
+  align-items: end;
+  background: var(--bg-soft);
+  border: 1px solid var(--card-edge);
+  border-radius: var(--radius);
+  padding: 0.9rem 1rem;
+  margin-bottom: 1.25rem;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+.controls label { font-size: 0.85rem; color: var(--muted); display: grid; gap: 0.25rem; }
+.controls label:first-child { flex: 1 1 220px; }
+.controls input, .controls select {
+  font: inherit;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--card-edge);
+  border-radius: 8px;
+  padding: 0.45rem 0.6rem;
+  width: 100%;
+}
+.controls input:focus, .controls select:focus { outline: 2px solid var(--amber); outline-offset: 1px; }
+.controls .count { margin: 0 0 0.1rem auto; color: var(--muted); font-size: 0.85rem; }
+
+.deals {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0.9rem;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--card-edge);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.card:hover { border-color: var(--amber); }
+.card-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding: 1rem;
+  color: var(--ink);
+  text-decoration: none;
+  height: 100%;
+}
+.card-top { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; }
+.glyph {
+  display: inline-grid;
+  place-items: center;
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 50%;
+  background: var(--bg-soft);
+  border: 1px solid var(--card-edge);
+  font-size: 1rem;
+}
+.cat { color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+.off {
+  margin-left: auto;
+  background: var(--amber);
+  color: var(--amber-ink);
+  font-weight: 800;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+}
+.title { font-weight: 700; font-size: 1.02rem; line-height: 1.35; }
+.store { color: var(--muted); font-size: 0.9rem; }
+.prices { display: flex; align-items: baseline; gap: 0.5rem; flex-wrap: wrap; }
+.price { font-size: 1.35rem; font-weight: 800; }
+.prices s { color: var(--muted); }
+.save { color: var(--green); font-weight: 700; font-size: 0.9rem; }
+.verdict {
+  margin-top: auto;
+  align-self: flex-start;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+}
+.verdict.deep { background: #123d2b; color: var(--green); }
+.verdict.strong { background: #2b3a12; color: #b8e986; }
+.verdict.solid { background: #1d2f52; color: var(--blue); }
+.verdict.modest { background: #3d2b12; color: #f0c674; }
+.empty { grid-column: 1 / -1; color: var(--muted); }
+
+.back { margin: 1.5rem 0 0; }
+.detail {
+  background: var(--card);
+  border: 1px solid var(--card-edge);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-top: 0.75rem;
+}
+.detail h1 { margin: 0.4rem 0 0.8rem; font-size: 1.6rem; line-height: 1.25; }
+.prices.big .price { font-size: 2rem; }
+.detail .verdict { display: inline-block; }
+.verdict-text { color: var(--muted); max-width: 60ch; }
+.detail dl {
+  display: grid;
+  grid-template-columns: 11rem 1fr;
+  gap: 0.4rem 1rem;
+  margin: 1.2rem 0;
+}
+.detail dt { color: var(--muted); }
+.detail dd { margin: 0; }
+.note {
+  background: var(--bg-soft);
+  border-left: 3px solid var(--amber);
+  padding: 0.8rem 1rem;
+  border-radius: 0 8px 8px 0;
+  max-width: 62ch;
+}
+.cta {
+  display: inline-block;
+  background: var(--amber);
+  color: var(--amber-ink);
+  font-weight: 800;
+  text-decoration: none;
+  padding: 0.7rem 1.3rem;
+  border-radius: 999px;
+}
+.cta:hover { filter: brightness(1.08); }
+.fineprint { color: var(--muted); font-size: 0.85rem; }
+
+.same { margin-top: 1.5rem; }
+.same h2 { font-size: 1.1rem; }
+.same ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; }
+.same li a {
+  display: block;
+  background: var(--card);
+  border: 1px solid var(--card-edge);
+  border-radius: 10px;
+  padding: 0.7rem 1rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+.same li a:hover { border-color: var(--amber); }
+
+footer.site {
+  border-top: 1px solid var(--card-edge);
+  padding: 1.25rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-align: center;
+}
+footer.site p { max-width: 70ch; margin: 0.3rem auto; }
+
+@media (max-width: 640px) {
+  .hero h1 { font-size: 1.6rem; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .controls { position: static; }
+  .controls label:first-child { flex-basis: 100%; }
+  .detail dl { grid-template-columns: 1fr; gap: 0; }
+  .detail dt { margin-top: 0.5rem; }
+  .deals { grid-template-columns: 1fr; }
+}
