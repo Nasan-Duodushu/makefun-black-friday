@@ -1,0 +1,6 @@
+[
+  { "file": "1-deals.jpg", "path": "#/", "viewport": { "width": 1280, "height": 800 } },
+  { "file": "2-filtered.jpg", "path": "#/?cat=Audio&min=50", "viewport": { "width": 1280, "height": 800 } },
+  { "file": "3-deal.jpg", "path": "#/deal/beats-studio-pro-walmart", "viewport": { "width": 1280, "height": 800 } },
+  { "file": "4-deal-phone.jpg", "path": "#/deal/airpods-pro-3-walmart", "viewport": { "width": 390, "height": 844 } }
+]
